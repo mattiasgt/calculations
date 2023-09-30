@@ -1,0 +1,12 @@
+git hash 21f2b2ce70f62fa29fa27c71e055937209f3eca0
+
+description MD5 36B55F3C3F99EF2E5B435909FE528392
+description SHA256 7528DB76AB7F0AAFA517F7BC0C2B1CC95F9EC7FA297DD3B953D84555F5D82827
+
+$hashString = (Get-ChildItem .\src -Recurse -File | Get-FileHash -Algorithm MD5).Hash | Out-String
+(Get-FileHash -Algorithm MD5 -InputStream ([IO.MemoryStream]::new([char[]]$hashString))).Hash
+FBCE7F06054EFACAE6221D7BF532210B
+
+$hashString = (Get-ChildItem .\src -Recurse -File | Get-FileHash -Algorithm SHA256).Hash | Out-String
+(Get-FileHash -Algorithm SHA256 -InputStream ([IO.MemoryStream]::new([char[]]$hashString))).Hash
+1B5BA7B505E90E18E7344D4AA8ED2F14DD717D7D1D84FDB531811844237F3210
